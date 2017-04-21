@@ -1,0 +1,15 @@
+<h1>Appearance Show Page, With Edit Form</h1>
+
+Appearance ID: <%= @appearance.id %>
+
+<br><br>
+
+Edit Appearance Info:
+<br><br>
+<%= form_for @appearance do |f| %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating, in: (1..5) %>
+  <%= f.collection_select :episode_id, Episode.all, :id, :date %>
+  <%= f.collection_select :guest_id, Guest.all, :id, :name %>
+  <%= f.submit %>
+<% end %>
